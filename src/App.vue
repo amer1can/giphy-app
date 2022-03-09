@@ -1,8 +1,5 @@
 <template>
-  <div id="nav">
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
-  </div>
+  <HeaderComponent />
   <router-view/>
 </template>
 
@@ -11,20 +8,31 @@
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
   color: #2c3e50;
+  background: rgb(33,37,41);
+  padding-bottom: 50px;
 }
-
-#nav {
-  padding: 30px;
-
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-
-    &.router-link-exact-active {
-      color: #42b983;
-    }
-  }
+input, button {
+  outline: none;
 }
 </style>
+
+<script>
+import HeaderComponent from "@/components/HeaderComponent";
+
+export default {
+  components: {HeaderComponent},
+  data() {
+    return {
+
+    }
+  },
+  async mounted() {
+    await this.$store.dispatch('getTrending')
+    await this.$store.dispatch('getRandom')
+  },
+  methods: {
+
+  }
+}
+</script>
