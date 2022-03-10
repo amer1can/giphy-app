@@ -4,19 +4,17 @@
       <div class="logo">
         <h1>Giphy Searcher</h1>
       </div>
-      <div class="search d-flex">
-        <input class="form-control"
-               type="text"
-               placeholder="Searching GIF"
-               v-model="this.$store.state.searchItem"
-        >
-        <button class="btn btn-secondary mx-1" @click="searchItem">Search</button>
-        <button class="btn btn-secondary mx-1" @click="searchClear">Clear</button>
-      </div>
+
 
       <ul class="nav align-items-center">
         <li>
           <router-link to="/">Home</router-link>
+        </li>
+        <li>
+          <router-link to="/favorites">Favorites</router-link>
+        </li>
+        <li>
+          <router-link to="/cart">Cart</router-link>
         </li>
         <li>
           <router-link to="/about">About</router-link>
@@ -31,14 +29,7 @@
 export default {
   name: "HeaderComponent",
   methods: {
-    async searchItem() {
-      this.$store.commit('nullingSearchList')
-      await this.$store.dispatch('searchItem')
-    },
-    searchClear() {
-      this.$store.commit('nullingSearchList')
-      this.$store.state.searchItem = ''
-    }
+
   }
 }
 </script>
@@ -53,7 +44,7 @@ header {
 }
 .nav {
   li {
-    padding: 0 30px;
+    padding: 0 10px;
   }
 
   a {

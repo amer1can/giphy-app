@@ -10,10 +10,30 @@ export default createStore({
     searchItem: '',
     searchLimit: 10,
     isLoading: false,
+    favoriteList: [],
+    cartList: []
   },
   mutations: {
     nullingSearchList() {
       this.state.searchList = []
+    },
+    addToFavoriteList({state}, id) {
+      console.log(state)
+      const elem = this.state.trendList.find(item => item.id === id)
+      this.state.favoriteList.push(elem)
+    },
+    removeFromFavoriteList({state}, id) {
+      console.log(state)
+      const findInd = this.state.favoriteList.findIndex(item => item.id === id)
+      this.state.favoriteList.splice(findInd, 1)
+    },
+    addToFavoriteListFromSearch({state}, id) {
+      console.log(state)
+      const elem = this.state.searchList.find(item => item.id === id)
+      this.state.favoriteList.push(elem)
+    },
+    addToFavoriteListRandom() {
+      this.state.favoriteList.push(this.state.random)
     }
   },
   actions: {
@@ -49,7 +69,7 @@ export default createStore({
         state.searchList = res.data.data
         console.log(state.searchList)
       }
-    }
+    },
   },
   modules: {
   }
