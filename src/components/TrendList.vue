@@ -8,7 +8,7 @@
       </div>
 
       <div v-else class="trend-list text-center">
-        <div class="cards d-flex flex-wrap">
+        <div class="cards d-flex flex-wrap justify-content-between">
           <div class="card" v-for="card in this.$store.state.trendList" :key="card.id">
             <svg  class="heart" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
                   width="18" height="18" viewBox="0 0 176.104 176.104" style="enable-background:new 0 0 176.104 176.104;"

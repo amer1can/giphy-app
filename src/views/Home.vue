@@ -9,6 +9,7 @@
                  type="text"
                  placeholder="Searching GIF"
                  v-model="this.$store.state.searchItem"
+                 @keypress.enter="searchItem"
           >
           <button class="btn btn-secondary mx-1" @click="searchItem">Search</button>
           <button class="btn btn-secondary mx-1" @click="searchClear">Clear</button>
